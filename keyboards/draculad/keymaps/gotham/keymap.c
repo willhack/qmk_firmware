@@ -207,6 +207,14 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_VOLD);
         }
     }
+    else if (index == 1) {
+      if(clockwise) {
+        tap_code(KC_PGUP);
+      }
+      else{
+        tap_code(KC_PGDN);
+      }
+    }
     else if (index == 2) {
       if(clockwise) {
         tap_code(KC_PGUP);
@@ -223,6 +231,6 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
           tap_code(KC_WH_D);
         }
     }
-    return true;
+    return false;
 }
 #endif
