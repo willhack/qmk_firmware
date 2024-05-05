@@ -20,7 +20,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 enum layer_number {
   _BASE,
   _NUM,
-  _SYMB,
+  _FUN,
+  _SYM,
   _MUS,
   _ADJ
 };
@@ -30,36 +31,43 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_Q,         KC_W,    KC_E,    KC_R,    KC_T,                                                 KC_Y,             KC_U,    KC_I,    KC_O,    KC_P,
         LCTL_T(KC_A),  LALT_T(KC_S),  LGUI_T(KC_D),  LSFT_T(KC_F),  KC_G,                    KC_H,  RSFT_T(KC_J),  RGUI_T(KC_K),   LALT_T(KC_L),  RCTL_T(KC_SCLN),
         KC_Z, KC_X,    KC_C,    KC_V,    KC_B,                                                 KC_N,             KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
-                                          KC_MUTE,                                              TG(_ADJ),
-                                  LT(_MUS, KC_ESC), LT(_NUM, KC_SPC), LT(XXXXXXX, KC_TAB),    LT(_SYMB, KC_ENT), LT(_NUM, KC_BSPC), LT(XXXXXXX, KC_DEL)
+                                          KC_MUTE,                                              KC_BTN1,
+                                  LT(_MUS, KC_ESC), LT(_NUM, KC_SPC), LT(_ADJ, KC_TAB),    LT(_SYM, KC_ENT), LT(_NUM, KC_BSPC), LT(_FUN, KC_DEL)
     ),
-    [_NUM] = LAYOUT(
-        KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                         KC_6,    KC_7,    KC_8,    KC_9,    KC_0,
-        KC_TAB,  XXXXXXX, KC_VOLD, KC_VOLU, XXXXXXX,                      KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_QUOT,
-        KC_LSFT, XXXXXXX, XXXXXXX, KC_MUTE, QK_BOOT,                        KC_HOME, KC_END,  KC_PGUP, KC_PGDN, KC_RSFT,
-                                            XXXXXXX,                      KC_NO,
-                                   XXXXXXX, KC_LALT, XXXXXXX,    _______, KC_ENT,  KC_NO
-    ),
-    [_SYMB] = LAYOUT(
+    [_NUM] = LAYOUT(     
+        XXXXXXX,  KC_7,    KC_8,    KC_9,  XXXXXXX,                    KC_H,  RSFT_T(KC_J),  RGUI_T(KC_K),   LALT_T(KC_L),  RCTL_T(KC_SCLN),
+        KC_LCTL,  LALT_T(KC_4),  LGUI_T(KC_5),  LSFT_T(KC_6),  XXXXXXX,                    KC_LEFT,  RSFT_T(KC_DOWN),  RGUI_T(KC_UP),   LALT_T(KC_RGHT),  RCTL_T(KC_QUOT),
+          XXXXXXX,  KC_1,    KC_2,    KC_3, XXXXXXX,                        KC_HOME, KC_END,  KC_PGUP, KC_PGDN, KC_RSFT,
+                                              XXXXXXX,                      KC_NO,
+                                    _______,   KC_0, KC_MINS,    _______, _______,  _______
+      ),
+      [_FUN] = LAYOUT(
         KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,                        XXXXXXX, XXXXXXX, XXXXXXX, KC_EQL,  KC_MINS,
         XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,                        KC_LBRC, KC_RBRC, XXXXXXX, KC_GRV,  KC_BSLS,
         KC_LSFT, KC_F9,   KC_F10,  KC_F11,  KC_F12,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RSFT,
                                             XXXXXXX,                      KC_NO,
-                                   KC_LALT, XXXXXXX, XXXXXXX,    XXXXXXX, _______, KC_NO
+                                   _______, _______, _______,    _______, _______, _______
+    ),
+    [_SYM] = LAYOUT(
+        KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,                        XXXXXXX, XXXXXXX, XXXXXXX, KC_EQL,  KC_MINS,
+        XXXXXXX, KC_F5,   KC_F6,   KC_F7,   KC_F8,                        KC_LBRC, KC_RBRC, XXXXXXX, KC_GRV,  KC_BSLS,
+        KC_LSFT, KC_F9,   KC_F10,  KC_F11,  KC_F12,                       XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_RSFT,
+                                            XXXXXXX,                      KC_NO,
+                                   _______, _______, _______,    _______, _______, _______
     ),
     [_MUS] = LAYOUT(
         KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         KC_LALT, KC_BTN3, KC_BTN2, KC_BTN1, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                             XXXXXXX,                      XXXXXXX,
-                                   XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                   _______, _______, _______,    _______, _______, _______
     ),
     [_ADJ] = LAYOUT(
         QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         EE_CLR,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      RGB_MOD,  RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, _______,
                                             XXXXXXX,                      _______,
-                                   XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+                                   _______, _______, _______,    _______, _______, _______
     )
 };
 
@@ -171,8 +179,11 @@ static void render_status(void) {
         case _NUM:
             oled_write_P(PSTR("Numbers"), false);
             break;
-        case _SYMB:
+        case _SYM:
             oled_write_P(PSTR("Symbols"), false);
+            break;
+        case _FUN:
+            oled_write_P(PSTR("Functions"), false);
             break;
         case _ADJ:
             oled_write_P(PSTR("Adjust "), false);
@@ -209,10 +220,10 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     }
     else if (index == 1) {
       if(clockwise) {
-        tap_code(KC_PGUP);
+        tap_code(KC_WH_D);
       }
       else{
-        tap_code(KC_PGDN);
+        tap_code(KC_WH_U);
       }
     }
     else if (index == 2) {

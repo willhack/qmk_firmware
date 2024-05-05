@@ -31,8 +31,8 @@
     "diode_direction": "COL2ROW",
     "encoder": {
         "rotary": [
-            {"pin_a": "B2", "pin_b": "B6"},
-            {"pin_a": "B4", "pin_b": "B5"}
+            {"pin_a": "B6", "pin_b": "B2"},
+            {"pin_a": "B5", "pin_b": "B4"}
         ]
     },
     "split": {
@@ -41,8 +41,7 @@
         "encoder": {
             "right": {
                 "rotary": [
-                    {"pin_a": "B2", "pin_b": "B6", "resolution": 4},
-                    {"pin_a": "B4", "pin_b": "B5", "resolution": 1}
+                    {"pin_a": "B6", "pin_b": "B2"}
                 ]
             }
         }
