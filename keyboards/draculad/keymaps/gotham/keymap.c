@@ -206,6 +206,13 @@ bool oled_task_user(void) {
     return false;
 }
 
+bool shutdown_user(bool jump_to_bootloader) {
+    oled_clear();
+    oled_write_P(PSTR("I SHALL\n    BECOME\n\n  A BAT!"), false);
+    oled_render_dirty(true);
+    return false;
+}
+
 #endif
 
 #ifdef ENCODER_ENABLE
