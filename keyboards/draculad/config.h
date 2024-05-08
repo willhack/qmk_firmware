@@ -32,3 +32,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define PERMISSIVE_HOLD
+
+#define RGBLIGHT_HUE_STEP 1
+#define RGBLIGHT_SAT_STEP 8
