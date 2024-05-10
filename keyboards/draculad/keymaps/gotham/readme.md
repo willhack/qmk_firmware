@@ -11,4 +11,4 @@
 
 RGBLIGHT (not matrix, etc.)
 
-CURRENT_FIRMWARE_SIZE - 26952/28672 (94%, 1720 bytes free)
+CURRENT_FIRMWARE_SIZE - 27198/28672 (94%, 1474 bytes free)
