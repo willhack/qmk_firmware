@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 enum layer_number {
   _BASE,
-  _NUM,
+  _N,
   _FUN,
   _SYM,
   _MUS,
@@ -32,14 +32,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         LCTL_T(KC_A),  LALT_T(KC_S),  LGUI_T(KC_D),  LSFT_T(KC_F),  KC_G,                    KC_H,  RSFT_T(KC_J),  RGUI_T(KC_K),   LALT_T(KC_L),  RCTL_T(KC_SCLN),
         KC_Z, KC_X,    KC_C,    KC_V,    KC_B,                                                 KC_N,             KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
                                           KC_MUTE,                                              KC_BTN1,
-                                  LT(_MUS, KC_ESC), LT(_NUM, KC_SPC), LT(_ADJ, KC_TAB),    LT(_SYM, KC_ENT), LT(_NUM, KC_BSPC), LT(_FUN, KC_DEL)
+                                  LT(_MUS, KC_ESC), LT(_N, KC_SPC), LT(_ADJ, KC_TAB),    SC_SENT, LT(_N, KC_BSPC), LT(_FUN, KC_DEL)
     ),
-    [_NUM] = LAYOUT(
-        XXXXXXX,  KC_7,    KC_8,    KC_9,  XXXXXXX,                    KC_H,  RSFT_T(KC_J),  RGUI_T(KC_K),   LALT_T(KC_L),  RCTL_T(KC_SCLN),
-        KC_LCTL,  LALT_T(KC_4),  LGUI_T(KC_5),  LSFT_T(KC_6),  XXXXXXX,                    KC_LEFT,  RSFT_T(KC_DOWN),  RGUI_T(KC_UP),   LALT_T(KC_RGHT),  RCTL_T(KC_QUOT),
-          XXXXXXX,  KC_1,    KC_2,    KC_3, XXXXXXX,                        KC_HOME, KC_END,  KC_PGUP, KC_PGDN, KC_RSFT,
+    [_N] = LAYOUT(
+        KC_LBRC,  KC_7,    KC_8,    KC_9,  KC_RBRC,                    XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,
+        _______,  LALT_T(KC_4),  LGUI_T(KC_5),  LSFT_T(KC_6),  KC_EQUAL,                    KC_LEFT,  RSFT_T(KC_DOWN),  RGUI_T(KC_UP),   LALT_T(KC_RGHT),  RCTL_T(KC_QUOT),
+          KC_GRAVE,  KC_1,    KC_2,    KC_3, KC_BACKSLASH,                        KC_HOME, KC_END,  KC_PGUP, KC_PGDN, KC_RSFT,
                                               XXXXXXX,                      KC_NO,
-                                    _______,   KC_0, KC_MINS,    _______, _______,  _______
+                                    KC_LEFT_PAREN,   KC_0, KC_MINS,    _______, _______,  LT(_FUN, KC_DEL)
       ),
       [_FUN] = LAYOUT(
         KC_ESC,  KC_F1,   KC_F2,   KC_F3,   KC_F4,                        XXXXXXX, XXXXXXX, XXXXXXX, KC_EQL,  KC_MINS,
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         EE_CLR,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      RGB_MOD,  RGB_HUI, RGB_SAI, RGB_VAI, RGB_TOG,
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      RGB_RMOD, RGB_HUD, RGB_SAD, RGB_VAD, _______,
-                                            XXXXXXX,                      _______,
+                                            XXXXXXX,                      RGB_TOG,
                                    _______, _______, _______,    _______, _______, _______
     )
 };
@@ -176,7 +176,7 @@ static void render_status(void) {
         case _BASE:
             oled_write_P(PSTR("Base   "), false);
             break;
-        case _NUM:
+        case _N:
             oled_write_P(PSTR("Numbers"), false);
             break;
         case _SYM:
@@ -217,11 +217,11 @@ bool shutdown_user(bool jump_to_bootloader) {
 
 #if defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
-    [_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN)  },
-    [_NUM] = { ENCODER_CCW_CW(RGB_HUD, RGB_HUI),           ENCODER_CCW_CW(RGB_SAD, RGB_SAI)  },
+    [_BASE] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU),          ENCODER_CCW_CW(KC_WH_U, KC_WH_D)  },
+    [_N] = { ENCODER_CCW_CW(RGB_HUD, RGB_HUI),           ENCODER_CCW_CW(KC_WH_L, KC_WH_R)  },
     [_FUN] = { ENCODER_CCW_CW(RGB_VAD, RGB_VAI),           ENCODER_CCW_CW(RGB_SPD, RGB_SPI)  },
     [_SYM] = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD),          ENCODER_CCW_CW(KC_RIGHT, KC_LEFT) },
     [_MUS] = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD),          ENCODER_CCW_CW(KC_RIGHT, KC_LEFT) },
-    [_ADJ] = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD),          ENCODER_CCW_CW(KC_RIGHT, KC_LEFT) },
+    [_ADJ] = { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD),          ENCODER_CCW_CW(RGB_HUD, RGB_HUI) },
 };
 #endif

@@ -1,11 +1,13 @@
 # Gotham Layout
 
-**Features**
+**Mindset**
 
 -   Miryoku QWERTY layout
 -   Mac based homerow mods (COGS)
+-   Nav and Num layers combined
+-   Prefers chording over multiple layers
 -   Caps Word
--
+-   Probably not for gamers
 
 ### n00bs section
 
