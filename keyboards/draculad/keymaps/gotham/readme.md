@@ -1,5 +1,6 @@
 # Gotham Layout
 
+
 **Mindset**
 
 -   Miryoku QWERTY layout

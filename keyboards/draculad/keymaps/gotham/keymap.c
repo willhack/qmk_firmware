@@ -29,14 +29,14 @@ enum layer_number {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] =  LAYOUT(
         KC_Q,         KC_W,    KC_E,    KC_R,    KC_T,                                                 KC_Y,             KC_U,    KC_I,    KC_O,    KC_P,
-        LCTL_T(KC_A),  LALT_T(KC_S),  LGUI_T(KC_D),  LSFT_T(KC_F),  KC_G,                    KC_H,  RSFT_T(KC_J),  RGUI_T(KC_K),   LALT_T(KC_L),  RCTL_T(KC_SCLN),
+        LCTL_T(KC_A),  LALT_T(KC_S),  LGUI_T(KC_D),  LSFT_T(KC_F),  KC_G,                    KC_H,  RSFT_T(KC_J),  RGUI_T(KC_K),   LALT_T(KC_L),  RCTL_T(KC_QUOT),
         KC_Z, KC_X,    KC_C,    KC_V,    KC_B,                                                 KC_N,             KC_M,    KC_COMM, KC_DOT,  KC_SLSH,
                                           KC_MUTE,                                              KC_BTN1,
-                                  LT(_MUS, KC_ESC), LT(_N, KC_SPC), LT(_ADJ, KC_TAB),    SC_SENT, LT(_N, KC_BSPC), LT(_FUN, KC_DEL)
+              LT(_MUS, KC_ESC), LT(_N, KC_SPC), LT(_ADJ, KC_TAB),    SC_SENT, LT(_N, KC_BSPC), LT(_FUN, KC_DEL)
     ),
     [_N] = LAYOUT(
         KC_LBRC,  KC_7,    KC_8,    KC_9,  KC_RBRC,                    XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,  XXXXXXX,
-        _______,  LALT_T(KC_4),  LGUI_T(KC_5),  LSFT_T(KC_6),  KC_EQUAL,                    KC_LEFT,  RSFT_T(KC_DOWN),  RGUI_T(KC_UP),   LALT_T(KC_RGHT),  RCTL_T(KC_QUOT),
+        _______,  LALT_T(KC_4),  LGUI_T(KC_5),  LSFT_T(KC_6),  KC_EQUAL,                    KC_LEFT,  RSFT_T(KC_DOWN),  RGUI_T(KC_UP),   LALT_T(KC_RGHT),  RCTL_T(KC_SCLN),
           KC_GRAVE,  KC_1,    KC_2,    KC_3, KC_BACKSLASH,                        KC_HOME, KC_END,  KC_PGUP, KC_PGDN, KC_RSFT,
                                               XXXXXXX,                      KC_NO,
                                     KC_LEFT_PAREN,   KC_0, KC_MINS,    _______, _______,  LT(_FUN, KC_DEL)
@@ -57,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
     [_MUS] = LAYOUT(
         KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-        KC_LALT, KC_BTN3, KC_BTN2, KC_BTN1, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+        KC_LALT, KC_BTN3, KC_BTN2, KC_BTN1, XXXXXXX,                      KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, XXXXXXX,
         KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                             XXXXXXX,                      XXXXXXX,
                                    _______, _______, _______,    _______, _______, _______
